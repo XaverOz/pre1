@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aed19be4-e859-46ec-be86-19568890a93d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserJdbcDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserJdbcDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserJdbcDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,6 +317,7 @@
       <workItem from="1576559148410" duration="1236000" />
       <workItem from="1576573149769" duration="196000" />
       <workItem from="1576575069465" duration="210000" />
+      <workItem from="1576575589077" duration="46000" />
     </task>
     <servers />
   </component>
