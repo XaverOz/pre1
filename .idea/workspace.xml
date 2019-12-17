@@ -7,13 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aed19be4-e859-46ec-be86-19568890a93d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UserJdbcDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EditServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EditServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDBService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,7 @@
       <list>
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -321,6 +319,7 @@
       <workItem from="1576512935843" duration="2669000" />
       <workItem from="1576559148410" duration="1236000" />
       <workItem from="1576573149769" duration="196000" />
+      <workItem from="1576575069465" duration="210000" />
     </task>
     <servers />
   </component>

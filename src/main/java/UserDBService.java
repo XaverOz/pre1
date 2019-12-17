@@ -6,13 +6,13 @@ import java.util.List;
 
 public class UserDBService {
 
-    private static UserDAO dao = null;
+    private static UserJdbcDAO dao = null;
 
     public UserDBService() {
     }
 
     public List<User> getAllUser() {
-        UserDAO dao = getUserDAO();
+        UserJdbcDAO dao = getUserDAO();
         return dao.getAllUser();
     }
 
@@ -21,18 +21,18 @@ public class UserDBService {
     }
 
     public boolean deleteUser(long id) {
-        UserDAO dao = getUserDAO();
+        UserJdbcDAO dao = getUserDAO();
         return dao.deleteUser(id);
     }
 
     public User getUserById(long id) {
-        UserDAO dao = getUserDAO();
+        UserJdbcDAO dao = getUserDAO();
         return dao.getUserById(id);
     }
 
-    private static UserDAO getUserDAO() {
+    private static UserJdbcDAO getUserDAO() {
         if(dao == null) {
-            dao = new UserDAO(getMysqlConnection());
+            dao = new UserJdbcDAO(getMysqlConnection());
         }
         return dao;
     }
