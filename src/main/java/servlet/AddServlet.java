@@ -1,3 +1,7 @@
+package servlet;
+
+import util.UserDBService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +16,8 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(userDBService.addUser(request.getParameter("name"), Integer.valueOf(request.getParameter("age")))) {
-            request.setAttribute("message", "User add ok");
-        } else  {
-            request.setAttribute("message", "User add error");
-        }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/result.jsp");
-        requestDispatcher.forward(request, response);
+        userDBService.addUser(request.getParameter("name"), Integer.valueOf(request.getParameter("age")));
+        response.sendRedirect("./users");
     }
 
     @Override

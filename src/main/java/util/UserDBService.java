@@ -1,3 +1,8 @@
+package util;
+
+import dao.UserJdbcDAO;
+import model.User;
+
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
