@@ -7,38 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aed19be4-e859-46ec-be86-19568890a93d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/servlet/DeleteServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/AddServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/DeleteServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/EditServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/UserDBService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/UserJdbcDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/UsersServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/result.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/AddServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DeleteServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EditServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/EditServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UserDBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserJdbcDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserJdbcDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/UsersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AddServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DeleteServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/EditServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserDBService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserJdbcDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UsersServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/result.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/users.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/util/UserDBService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/usersJSP2_pre__war_exploded/WEB-INF/classes/util/UserDBService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UserDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/UserDBService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/UserDBService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,7 +290,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Failed" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -360,6 +332,7 @@
       <workItem from="1576595080087" duration="41000" />
       <workItem from="1576595135681" duration="58000" />
       <workItem from="1576595224344" duration="1282000" />
+      <workItem from="1576671438850" duration="259000" />
     </task>
     <servers />
   </component>
@@ -371,7 +344,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -410,22 +385,22 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="499" y="154" width="735" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1576429832802" />
-    <state width="1063" height="209" key="GridCell.Tab.0.bottom" timestamp="1576596525610">
+    <state width="1063" height="209" key="GridCell.Tab.0.bottom" timestamp="1576671706364">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1063" height="209" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1576596525610" />
-    <state width="1063" height="209" key="GridCell.Tab.0.center" timestamp="1576596525610">
+    <state width="1063" height="209" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1576671706364" />
+    <state width="1063" height="209" key="GridCell.Tab.0.center" timestamp="1576671706364">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1063" height="209" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1576596525610" />
-    <state width="1063" height="209" key="GridCell.Tab.0.left" timestamp="1576596525609">
+    <state width="1063" height="209" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1576671706364" />
+    <state width="1063" height="209" key="GridCell.Tab.0.left" timestamp="1576671706364">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1063" height="209" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1576596525609" />
-    <state width="1063" height="209" key="GridCell.Tab.0.right" timestamp="1576596525610">
+    <state width="1063" height="209" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1576671706364" />
+    <state width="1063" height="209" key="GridCell.Tab.0.right" timestamp="1576671706364">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1063" height="209" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1576596525610" />
+    <state width="1063" height="209" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1576671706364" />
     <state width="1063" height="209" key="GridCell.Tab.1.bottom" timestamp="1576596525612">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

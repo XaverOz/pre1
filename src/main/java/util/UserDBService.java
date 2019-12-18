@@ -1,5 +1,6 @@
 package util;
 
+import dao.UserDAO;
 import dao.UserJdbcDAO;
 import model.User;
 
@@ -11,13 +12,13 @@ import java.util.List;
 
 public class UserDBService {
 
-    private static UserJdbcDAO dao = null;
+    private static UserDAO dao = null;
 
     public UserDBService() {
     }
 
     public List<User> getAllUser() {
-        UserJdbcDAO dao = getUserDAO();
+        UserDAO dao = getUserDAO();
         return dao.getAllUser();
     }
 
@@ -26,16 +27,16 @@ public class UserDBService {
     }
 
     public boolean deleteUser(long id) {
-        UserJdbcDAO dao = getUserDAO();
+        UserDAO dao = getUserDAO();
         return dao.deleteUser(id);
     }
 
     public User getUserById(long id) {
-        UserJdbcDAO dao = getUserDAO();
+        UserDAO dao = getUserDAO();
         return dao.getUserById(id);
     }
 
-    private static UserJdbcDAO getUserDAO() {
+    private static UserDAO getUserDAO() {
         if(dao == null) {
             dao = new UserJdbcDAO(getMysqlConnection());
         }
