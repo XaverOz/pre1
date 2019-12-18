@@ -7,10 +7,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserJdbcDAO implements UserDAO {
-    private Connection connection;
+    private static Connection connection = null;
 
-    public UserJdbcDAO(Connection connection) {
-        this.connection = connection;
+    private static Connection getMysqlConnection() {
+        try {
+            DriverManager.registerDriver((Driver) Class.forName("com.mysql.jdbc.Driver").newInstance());
+            StringBuilder url = new StringBuilder();
+            url.
+                    append("jdbc:mysql://").        //db type
+                    append("localhost:").           //host name
+                    append("3306/").                //port
+                    append("pre1?").          //db name
+                    append("user=zaa&").          //login
+                    append("password=Control1");       //password
+            Connection connection = DriverManager.getConnection(url.toString());
+            return connection;
+        } catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new IllegalStateException();
+        }
+    }
+
+    public UserJdbcDAO() {
+        if (connection == null) {
+            connection = getMysqlConnection();
+        }
     }
 
     public boolean addUser(String name, int age) {

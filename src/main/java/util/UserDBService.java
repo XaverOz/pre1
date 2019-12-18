@@ -3,11 +3,6 @@ package util;
 import dao.UserDAO;
 import dao.UserJdbcDAO;
 import model.User;
-
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.List;
 
 public class UserDBService {
@@ -38,7 +33,7 @@ public class UserDBService {
 
     private static UserDAO getUserDAO() {
         if(dao == null) {
-            dao = new UserJdbcDAO(getMysqlConnection());
+            dao = new UserJdbcDAO();
         }
         return dao;
     }
@@ -47,22 +42,5 @@ public class UserDBService {
         getUserDAO().updateUser(user);
     }
 
-    private static Connection getMysqlConnection() {
-        try {
-            DriverManager.registerDriver((Driver) Class.forName("com.mysql.jdbc.Driver").newInstance());
-            StringBuilder url = new StringBuilder();
-            url.
-                    append("jdbc:mysql://").        //db type
-                    append("localhost:").           //host name
-                    append("3306/").                //port
-                    append("pre1?").          //db name
-                    append("user=zaa&").          //login
-                    append("password=Control1");       //password
-            Connection connection = DriverManager.getConnection(url.toString());
-            return connection;
-        } catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new IllegalStateException();
-        }
-    }
+
 }
