@@ -1,7 +1,7 @@
 package util;
 
 import dao.UserDAO;
-import dao.UserJdbcDAO;
+import dao.UserHibernateDAO;
 import model.User;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class UserDBService {
 
     private static UserDAO getUserDAO() {
         if(dao == null) {
-            dao = new UserJdbcDAO();
+            dao = new UserHibernateDAO();
         }
         return dao;
     }
