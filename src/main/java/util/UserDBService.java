@@ -1,16 +1,20 @@
 package util;
 
 import dao.UserDAO;
-import dao.UserDaoFactory;
+import dao.UserDAOFactory;
 import dao.UserHibernateDAO;
-import dao.UserJdbcDAO;
+import dao.UserHibernateDAOFactory;
 import model.User;
+
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 public class UserDBService {
 
-    private static UserDAO dao = null;
+    private static UserDAOFactory daoFactory = null;
     private static UserDBService userDBService = null;
+    public static final String configDAO = "/DAO.property";
 
     private UserDBService() {
     }
@@ -19,29 +23,38 @@ public class UserDBService {
         if(userDBService == null) {
             userDBService = new UserDBService();
         }
+        if(daoFactory == null) {
+            Properties prop = new Properties();
+            try {
+                InputStream is = UserDBService.class.getResourceAsStream(configDAO);
+                prop.load(is);
+                daoFactory = (UserDAOFactory) Class.forName(prop.getProperty("dao_factory")).newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+                daoFactory = new UserHibernateDAOFactory();
+            }
+        }
         return userDBService;
     }
 
     public List<User> getAllUser() {
-        UserDAO dao = UserDaoFactory.getUserDAO();
-        return dao.getAllUser();
+        return daoFactory.getUserDAO().getAllUser();
     }
 
     public boolean addUser(String name, int age) {
-        return UserDaoFactory.getUserDAO().addUser(name, age);
+        return daoFactory.getUserDAO().addUser(name, age);
     }
 
     public boolean deleteUser(long id) {
-        return UserDaoFactory.getUserDAO().deleteUser(id);
+        return daoFactory.getUserDAO().deleteUser(id);
     }
 
     public User getUserById(long id) {
-        UserDAO dao = UserDaoFactory.getUserDAO();
-        return dao.getUserById(id);
+        return daoFactory.getUserDAO().getUserById(id);
     }
 
     public void updateUser(User user) {
-        UserDaoFactory.getUserDAO().updateUser(user);
+        daoFactory.getUserDAO().updateUser(user);
     }
 
 
