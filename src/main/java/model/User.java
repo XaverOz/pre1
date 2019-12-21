@@ -15,6 +15,14 @@ public class User {
     @Column(name = "age")
     private int age;
 
+    public User() {
+    }
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public User(long id, String name, int age) {
         this.id = id;
         this.name = name;
