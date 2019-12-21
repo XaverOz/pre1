@@ -11,11 +11,10 @@ import java.io.IOException;
 
 @WebServlet(value = "/delete")
 public class DeleteServlet extends HttpServlet {
-    UserDBService userDBService = new UserDBService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        userDBService.deleteUser(Long.valueOf(request.getParameter("id")));
+        UserDBService.getUserDBService().deleteUser(Long.valueOf(request.getParameter("id")));
         response.sendRedirect("./users");
     }
 }

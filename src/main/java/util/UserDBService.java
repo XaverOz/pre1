@@ -1,6 +1,7 @@
 package util;
 
 import dao.UserDAO;
+import dao.UserDaoFactory;
 import dao.UserHibernateDAO;
 import dao.UserJdbcDAO;
 import model.User;
@@ -9,38 +10,38 @@ import java.util.List;
 public class UserDBService {
 
     private static UserDAO dao = null;
+    private static UserDBService userDBService = null;
 
-    public UserDBService() {
+    private UserDBService() {
+    }
+
+    public static UserDBService getUserDBService() {
+        if(userDBService == null) {
+            userDBService = new UserDBService();
+        }
+        return userDBService;
     }
 
     public List<User> getAllUser() {
-        UserDAO dao = getUserDAO();
+        UserDAO dao = UserDaoFactory.getUserDAO();
         return dao.getAllUser();
     }
 
     public boolean addUser(String name, int age) {
-        return getUserDAO().addUser(name, age);
+        return UserDaoFactory.getUserDAO().addUser(name, age);
     }
 
     public boolean deleteUser(long id) {
-        UserDAO dao = getUserDAO();
-        return dao.deleteUser(id);
+        return UserDaoFactory.getUserDAO().deleteUser(id);
     }
 
     public User getUserById(long id) {
-        UserDAO dao = getUserDAO();
+        UserDAO dao = UserDaoFactory.getUserDAO();
         return dao.getUserById(id);
     }
 
-    private static UserDAO getUserDAO() {
-        if(dao == null) {
-            dao = new UserHibernateDAO();
-        }
-        return dao;
-    }
-
     public void updateUser(User user) {
-        getUserDAO().updateUser(user);
+        UserDaoFactory.getUserDAO().updateUser(user);
     }
 
 

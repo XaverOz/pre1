@@ -12,11 +12,10 @@ import java.io.IOException;
 
 @WebServlet(value = "/add")
 public class AddServlet extends HttpServlet {
-    UserDBService userDBService = new UserDBService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        userDBService.addUser(request.getParameter("name"), Integer.valueOf(request.getParameter("age")));
+        UserDBService.getUserDBService().addUser(request.getParameter("name"), Integer.valueOf(request.getParameter("age")));
         response.sendRedirect("./users");
     }
 

@@ -13,22 +13,20 @@ import java.io.IOException;
 
 @WebServlet(value = "/edit")
 public class EditServlet extends HttpServlet {
-    UserDBService userDBService = new UserDBService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = userDBService.getUserById(Long.valueOf(request.getParameter("id")));
+        User user = UserDBService.getUserDBService().getUserById(Long.valueOf(request.getParameter("id")));
         user.setAge(Integer.valueOf(request.getParameter("age")));
         user.setName(request.getParameter("name"));
-        userDBService.updateUser(user);
+        UserDBService.getUserDBService().updateUser(user);
         response.sendRedirect("./users");
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/edit.jsp");
-        request.setAttribute("user", userDBService.getUserById(Long.valueOf(request.getParameter("id"))));
+        request.setAttribute("user", UserDBService.getUserDBService().getUserById(Long.valueOf(request.getParameter("id"))));
         requestDispatcher.forward(request, response);
     }
 }

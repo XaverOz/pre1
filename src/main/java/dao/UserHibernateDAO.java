@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import util.DBHelper;
 
 import java.util.List;
 
@@ -19,22 +20,8 @@ public class UserHibernateDAO implements UserDAO {
         }
     }
 
-    @SuppressWarnings("UnusedDeclaration")
-    private static Configuration getMySqlConfiguration() {
-        Configuration configuration = new Configuration();
-        configuration.addAnnotatedClass(User.class);
-        configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-        configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/pre1");
-        configuration.setProperty("hibernate.connection.username", "zaa");
-        configuration.setProperty("hibernate.connection.password", "Control1");
-        configuration.setProperty("hibernate.show_sql", "true");
-        configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-        return configuration;
-    }
-
     private static SessionFactory createSessionFactory() {
-        Configuration configuration = getMySqlConfiguration();
+        Configuration configuration = DBHelper.getDBHelper().getConfiguration();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
         builder.applySettings(configuration.getProperties());
         ServiceRegistry serviceRegistry = builder.build();
@@ -49,19 +36,23 @@ public class UserHibernateDAO implements UserDAO {
     }
     public boolean deleteUser(long id) {
         Session session = sessionFactory.openSession();
+        session.beginTransaction();
         Query query = session.createQuery("Delete FROM User where id =:id");
         query.setParameter("id", id);
         query.executeUpdate();
+        session.getTransaction().commit();
         session.close();
         return true;
     }
     public void updateUser(User user) {
         Session session = sessionFactory.openSession();
+        session.beginTransaction();
         Query query = session.createQuery("UPDATE User SET age =:age, name =:name  WHERE id =:id");
         query.setParameter("age", user.getAge());
         query.setParameter("name", user.getName());
         query.setParameter("id", user.getId());
         query.executeUpdate();
+        session.getTransaction().commit();
         session.close();
     }
     public User getUserById(long id) {

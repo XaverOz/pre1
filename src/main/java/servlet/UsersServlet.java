@@ -12,11 +12,10 @@ import java.io.IOException;
 
 @WebServlet(value = "/users")
 public class UsersServlet extends HttpServlet {
-    UserDBService userDBService = new UserDBService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("users", userDBService.getAllUser());
+        request.setAttribute("users", UserDBService.getUserDBService().getAllUser());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/users.jsp");
         requestDispatcher.forward(request, response);
     }
