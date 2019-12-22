@@ -1,1 +1,1 @@
-dao_factory=dao.UserHibernateDAOFactory
+dao_factory=dao.UserJdbcDAOFactory

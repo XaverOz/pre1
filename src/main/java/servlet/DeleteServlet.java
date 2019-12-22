@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value = "/delete")
+@WebServlet(value = "/admin/delete")
 public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDBService.getUserDBService().deleteUser(Long.valueOf(request.getParameter("id")));
-        response.sendRedirect("./users");
+        response.sendRedirect("../admin/users");
     }
 }

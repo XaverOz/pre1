@@ -13,8 +13,10 @@
 <body>
 
 <form method="post" action="./edit">
-    <input type="hidden" name="id" value="${user.id}"><br>
+    <input type="hidden" name="id" value="${user.id}">
+    <div>Name</div>
     <input type="text" name="name" value="${user.name}"><br>
+    <div>Age</div>
     <input type="number" name="age" value="${user.age}" min="10" max="100"><br>
     <input type="submit" value="Save"><br>
 </form>

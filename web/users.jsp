@@ -9,10 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
-    <title>model.User list</title>
+    <title>User list</title>
   </head>
   <body>
     <table>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          Age
+        </td>
+      </tr>
       <c:forEach items="${users}" var="user">
         <tr>
           <td>
@@ -30,6 +38,6 @@
         </tr>
       </c:forEach>
     </table>
-    <a href="add">Add</a>
+    <a href="./add">Add</a>
   </body>
 </html>

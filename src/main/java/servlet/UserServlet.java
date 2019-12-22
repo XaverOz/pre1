@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value = "/admin/users")
-public class UsersServlet extends HttpServlet {
+@WebServlet(value = "/user")
+public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("users", UserDBService.getUserDBService().getAllUser());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/users.jsp");
+        request.setAttribute("name", request.getSession().getAttribute("name"));
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user.jsp");
         requestDispatcher.forward(request, response);
     }
 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value = "/edit")
+@WebServlet(value = "/admin/edit")
 public class EditServlet extends HttpServlet {
 
     @Override
@@ -20,7 +20,7 @@ public class EditServlet extends HttpServlet {
         user.setAge(Integer.valueOf(request.getParameter("age")));
         user.setName(request.getParameter("name"));
         UserDBService.getUserDBService().updateUser(user);
-        response.sendRedirect("./users");
+        response.sendRedirect("../admin/users");
     }
 
     @Override

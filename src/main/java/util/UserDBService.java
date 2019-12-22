@@ -57,5 +57,7 @@ public class UserDBService {
         daoFactory.getUserDAO().updateUser(user);
     }
 
-
+    public User getUserByName(String name) {
+        return daoFactory.getUserDAO().getUserByName(name);
+    }
 }

@@ -27,6 +27,7 @@ public class UserHibernateDAO implements UserDAO {
         ServiceRegistry serviceRegistry = builder.build();
         return configuration.buildSessionFactory(serviceRegistry);
     }
+
     public boolean addUser(String name, int age) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -34,6 +35,7 @@ public class UserHibernateDAO implements UserDAO {
         session.getTransaction().commit();
         return true;
     }
+
     public boolean deleteUser(long id) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -44,6 +46,7 @@ public class UserHibernateDAO implements UserDAO {
         session.close();
         return true;
     }
+
     public void updateUser(User user) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -55,6 +58,7 @@ public class UserHibernateDAO implements UserDAO {
         session.getTransaction().commit();
         session.close();
     }
+
     public User getUserById(long id) {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM User where id =:id");
@@ -63,11 +67,26 @@ public class UserHibernateDAO implements UserDAO {
         session.close();
         return user;
     }
+
     public List<User> getAllUser() {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM User");
         List<User> users = query.list();
         session.close();
         return users;
+    }
+
+    public User getUserByName(String name) {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM User where name =:name");
+        query.setParameter("name", name);
+        User user = null;
+        try {
+            user = (User) query.uniqueResult();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

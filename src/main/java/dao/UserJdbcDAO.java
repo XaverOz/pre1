@@ -1,6 +1,8 @@
 package dao;
 
 import model.User;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import util.DBHelper;
 
 import java.sql.*;
@@ -17,9 +19,11 @@ public class UserJdbcDAO implements UserDAO {
     }
 
     public boolean addUser(String name, int age) {
-        try(PreparedStatement stmt = connection.prepareStatement("insert into User (name, age) values (?, ?)")) {
+        try(PreparedStatement stmt = connection.prepareStatement("insert into User (name, age, role, password) values (?, ?, ?, ?)")) {
             stmt.setString(1, name);
             stmt.setInt(2, age);
+            stmt.setString(3, "user");
+            stmt.setString(4, "1234");
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -52,10 +56,12 @@ public class UserJdbcDAO implements UserDAO {
 
     public User getUserById(long id) {
         try(Statement stmt = connection.createStatement()) {
-            stmt.execute("select id, name, age from User where id="+String.valueOf(id));
+            stmt.execute("select id, name, age, role, password from User where id="+String.valueOf(id));
             ResultSet resultSet = stmt.getResultSet();
             resultSet.next();
             User user = new User(resultSet.getLong(1), resultSet.getString(2), resultSet.getInt(3));
+            user.setRole(resultSet.getString(4));
+            user.setPassword(resultSet.getString(5));
             resultSet.close();
             return user;
         } catch (SQLException e) {
@@ -67,10 +73,12 @@ public class UserJdbcDAO implements UserDAO {
     public List<User> getAllUser() {
         List<User> clients = new ArrayList<>();
         try(Statement stmt = connection.createStatement()) {
-            stmt.execute("select id, name, age from User");
+            stmt.execute("select id, name, age, role, password from User");
             ResultSet resultSet = stmt.getResultSet();
             while(resultSet.next()) {
                 clients.add(new User(resultSet.getLong(1), resultSet.getString(2), resultSet.getInt(3)));
+                clients.get(clients.size() - 1).setRole(resultSet.getString(4));
+                clients.get(clients.size() - 1).setPassword(resultSet.getString(5));
             }
             resultSet.close();
             return clients;
@@ -78,5 +86,25 @@ public class UserJdbcDAO implements UserDAO {
             e.printStackTrace();
             return clients;
         }
+    }
+
+    public User getUserByName(String name) {
+        User user = null;
+        try(Statement stmt = connection.createStatement()) {
+            stmt.execute("select id, age, password, role  from User where name='"+name+"'");
+            ResultSet resultSet = stmt.getResultSet();
+            resultSet.next();
+            user = new User();
+            user.setId(resultSet.getLong(1));
+            user.setName(name);
+            user.setAge(resultSet.getInt(2));
+            user.setPassword(resultSet.getString(3));
+            user.setRole(resultSet.getString(4));
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            user = null;
+        }
+        return user;
     }
 }

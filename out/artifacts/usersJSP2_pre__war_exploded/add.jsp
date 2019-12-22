@@ -6,8 +6,10 @@
 <body>
 
 <form method="post" action="./add">
-    <input type="text" name="name" value=""><br>
-    <input type="number" name="age" value="" min="10" max="100"><br>
+    <div>Name</div>
+    <input type="text" name="name" value="usrtst"><br>
+    <div>Age</div>
+    <input type="number" name="age" value="10" min="10" max="100"><br>
     <input type="submit" value="Add"><br>
 </form>
 </body>
